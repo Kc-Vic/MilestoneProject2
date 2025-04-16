@@ -37,6 +37,24 @@ h2 {
     margin: 0 0 10px;
 }
 
+.start-button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 4px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+.start-button:hover {
+    background-color: #45a049;
+}
+.start-button:active {
+    background-color: #3e8e41;
+}
+
 /*-----
     Game Styles
     ----------*/
@@ -52,12 +70,15 @@ h2 {
 #question {
     font-size: 1.5em;
     margin-bottom: 20px;
+    font-style: italic;
 }
 
 #img-container {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    filter:blur(0.5rem);
+    transition: filter 0.3s ease;
 }
 
 #question-img {
