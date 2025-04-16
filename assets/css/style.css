@@ -77,8 +77,10 @@ h2 {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    width: 100%;
     filter:blur(0.5rem);
     transition: filter 0.3s ease;
+    overflow: hidden;
 }
 
 #question-img {
@@ -120,4 +122,89 @@ h2 {
 .score {
     font-size: 1.5em;
     margin: 0;
+}
+
+/*------------------------------
+  Responsive Design for Smaller Screens
+------------------------------*/
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    #question {
+        font-size: 1.2em;
+    }
+
+    .start-button {
+        font-size: 0.8em;
+        padding: 8px 16px;
+    }
+
+    .answer-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+
+    .rules,
+    .game-area,
+    .scoreboard {
+        padding: 15px 5px;
+    }
+
+    #img-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #question-img {
+        max-width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .start-button,
+    .answer-button {
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+        margin: 8px 0;
+    }
+
+    #question {
+        font-size: 1em;
+    }
+
+    .rules,
+    .game-area,
+    .scoreboard {
+        margin: 10px 0;
+        padding: 10px 5px;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    #img-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #question-img {
+        max-width: 100px;
+        height: auto;
+    }
 }
