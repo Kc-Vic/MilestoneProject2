@@ -7,22 +7,25 @@
     <!---Font awesome and google fonts-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Says Who</title>
 </head>
 <body>
-    <div id="heading">
-        <h1>Says Who</h1>
+    <div class="heading">
+        <h1 id="header">Says Who</h1>
     </div>
 
-    <div id="rules">
-        <h2>Guidelines</h2>
+    <div class="rules">
+        <h2 id="guide">Guidelines</h2>
         <button id="start-button">Start Game</button>
 
     </div>
 
-    <div id="game-area">
+    <div class="game-area">
         <p id="question">GAme question</p>
-        <img id="question-image" src="" alt="Question Image">
+        <div id="img-container">
+            <img id="question-image" src="" alt="Question Image">
+        </div>
         <div id="answers">
             <button class="answer-button" id="option1">Answer 1</button>
             <button class="answer-button" id="option2">Answer 2</button>
@@ -32,7 +35,7 @@
 
     </div>
 
-    <div id="scoreboard">
+    <div class="scoreboard">
         <p class="alert">You are <span id = "alert">Alert text</span></p>
         <p class="scores">Correct:<span id="correct-score">0</span></p>
         <p class="scores">Incorrect:<span id="incorrect-score">0</span></p>
