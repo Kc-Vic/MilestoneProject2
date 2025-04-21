@@ -7,7 +7,7 @@ const questions = [
     },
 
     {
-        question: "I am the pinishment of God",
+        question: "I am the punishment of God",
         choices: ["Genghis Khan", "Alexander the Great", "Albert Einstein", "Julius Caesar"],
         img: "",
         answer: 'Genghis Khan'
@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 startGame(); // Call the function to start the game
             } else {
                 checkAnswer(e); // Call the function to check the answer
-                displayImage(); // Call the function to display the image
             }
         })
     }
@@ -40,12 +39,21 @@ function startGame() {
 
 function generateQuestion() {
 
+    gameArea.innerHTML = ""; // Clear the game area
     let questionText = document.createElement("h3");
     questionText.setAttribute("id", "question"); // Set the ID for the question text
     questionText.innerHTML = questions[currentQuestion].question; // Set the question text
     gameArea.appendChild(questionText); // Append the question text to the game area
 
-    displayImage(); // Call the function to display the image
+    let imgcontainer = document.createElement("div");
+    imgcontainer.setAttribute("id", "img-container"); // Set the ID for the image container
+    gameArea.appendChild(imgcontainer); // Append the container to the game area
+
+    let questionImg = document.createElement("img");
+    questionImg.setAttribute("src", questions[currentQuestion].img);
+    questionImg.setAttribute("alt", "Question Image");
+    questionImg.setAttribute("id", "question-img"); // Set the ID for the image element
+    imgcontainer.appendChild(questionImg); // Append the image to the container
 
     let choicesContainer = document.createElement("div");
     choicesContainer.setAttribute("id", "answers"); // Set the ID for the choices container
@@ -76,27 +84,22 @@ function checkAnswer(e) {
         alert("Wrong! The correct answer is: " + correctAnswer); // Alert the user that the answer is wrong
         incrementWrongAnswers(); // Call the function to increment wrong answers
     }
-    let clearImage = document.getElementById("img-container"); // Get the image container
-    if (clearImage) {
-        clearImage.style.removeProperty("blur"); // Remove the image container if it exists
-    }
+    nextQuestion(); // Call the function to go to the next question
 }
 
 function nextQuestion() {
-
+    
+    currentQuestion++; // Increment the current question index
+    if (currentQuestion < questions.length) {
+        generateQuestion(); // Call the function to generate the next question
+    } else {
+        alert("Quiz Over!"); // Alert the user that the quiz is over
+        gameArea.innerHTML = ""; // Clear the game area
+    }
 }
 
 function displayImage() {
-
-    let imgcontainer = document.createElement("div");
-    imgcontainer.setAttribute("id", "img-container"); // Set the ID for the image container
-    gameArea.appendChild(imgcontainer); // Append the container to the game area
-
-    let questionImg = document.createElement("img");
-    questionImg.setAttribute("src", questions[currentQuestion].img);
-    questionImg.setAttribute("alt", "Question Image");
-    questionImg.setAttribute("id", "question-img"); // Set the ID for the image element
-    imgcontainer.appendChild(questionImg); // Append the image to the container
+    
 }
 
 function incrementCorrectAnswers() {
