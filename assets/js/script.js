@@ -73,6 +73,7 @@ function generateQuestion() {
 }
 
 function checkAnswer(e) {
+
     let clickedButton = e.currentTarget; // Get the clicked button
     let selectedAnswer = clickedButton.innerText; // Get the text of the clicked button
     let correctAnswer = questions[currentQuestion].answer; // Get the correct answer
@@ -96,6 +97,7 @@ function nextQuestion() {
         alert("Quiz Over!"); // Alert the user that the quiz is over
         gameArea.innerHTML = ""; // Clear the game area
     }
+
 }
 
 function displayImage() {
@@ -103,9 +105,15 @@ function displayImage() {
 }
 
 function incrementCorrectAnswers() {
+    
+    let oldScore = parseInt(document.getElementById("correct-score").innerText); // Get the current score
+    document.getElementById("correct-score").innerText = oldScore + 1; // Increment the score by 1
 
 }
 
 function incrementWrongAnswers() {
+
+    let oldScore = parseInt(document.getElementById("incorrect-score").innerText); // Get the current score
+    document.getElementById("incorrect-score").innerText = oldScore + 1; // Increment the score by 1
 
 }
