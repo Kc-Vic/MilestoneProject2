@@ -2,15 +2,15 @@ const questions = [
     {
         question: "I Came, I Saw, I Conquered",
         choices: ["Julius Caesar", "Alexander the Great", "Napoleon Bonaparte", "Genghis Khan"],
-        img: "assets/images/caesar.jpg",
-        answer: 0
+        img: "assets/images/Julius Ceasar.jpg",
+        answer: 'Julius Caesar'
     },
 
     {
         question: "I am the pinishment of God",
         choices: ["Genghis Khan", "Alexander the Great", "Albert Einstein", "Julius Caesar"],
         img: "",
-        answer: 0
+        answer: 'Genghis Khan'
     }
 ];
 
@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.getAttribute("data-type") === "submit") {
                 startGame(); // Call the function to start the game
             } else {
-                let gameType = this.getAttribute("id");
-                alert(`You clicked ${gameType}`);
+                checkAnswer(e); // Call the function to check the answer
+                displayImage(); // Call the function to display the image
             }
         })
     }
@@ -55,14 +55,34 @@ function generateQuestion() {
         let choiceButton = document.createElement("button");
         choiceButton.setAttribute("class", "answer-button"); // Set the class for the choice button
         choiceButton.innerHTML = choice; // Set the button text to the choice
+        choiceButton.addEventListener("click", checkAnswer); // Add an event listener to the button
         choicesContainer.appendChild(choiceButton); // Append the button to the choices container
     };
+    
 
     gameArea.appendChild(choicesContainer); // Append the choices container to the game area
 
 }
 
-function checkAnswer() {
+function checkAnswer(e) {
+    let clickedButton = e.currentTarget; // Get the clicked button
+    let selectedAnswer = clickedButton.innerText; // Get the text of the clicked button
+    let correctAnswer = questions[currentQuestion].answer; // Get the correct answer
+    if (selectedAnswer === correctAnswer) {
+        alert("Correct!"); // Alert the user that the answer is correct
+        incrementCorrectAnswers(); // Call the function to increment correct answers
+    }
+    else {
+        alert("Wrong! The correct answer is: " + correctAnswer); // Alert the user that the answer is wrong
+        incrementWrongAnswers(); // Call the function to increment wrong answers
+    }
+    let clearImage = document.getElementById("img-container"); // Get the image container
+    if (clearImage) {
+        clearImage.style.removeProperty("blur"); // Remove the image container if it exists
+    }
+}
+
+function nextQuestion() {
 
 }
 

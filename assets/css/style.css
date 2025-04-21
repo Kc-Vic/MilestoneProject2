@@ -59,6 +59,7 @@ h2 {
     Game Styles
     ----------*/
 .game-area {
+    display: flex;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
