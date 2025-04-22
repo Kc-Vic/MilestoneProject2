@@ -15,7 +15,7 @@ const questions = [
 
     {
         question: "I am the state",
-        choices: ["Louis XIV", "Napoleon Bonaparte", "Alexander the Great", "Genghis Khan"],
+        choices: ["Louis XIV", "Napoleon Bonaparte", "Josef Stalin", "Winston Churchill"],
         img: "",
         answer: 'Louis XIV'
     },
@@ -29,7 +29,7 @@ const questions = [
 
     {
         question: "I will return",
-        choices: ["Napoleon Bonaparte", "Alexander the Great", "Julius Caesar", "Genghis Khan"],
+        choices: ["Napoleon Bonaparte", "Douglas MacArthur", "Julius Caesar", "Genghis Khan"],
         img: "",
         answer: 'Douglas MacArthur'
     },
@@ -127,11 +127,12 @@ function checkAnswer(e) {
 
 function nextQuestion() {
     
-    currentQuestion++; // Increment the current question index
-    if (currentQuestion < questions.length) {
-        generateQuestion(); // Call the function to generate the next question
+    questions.splice(currentQuestion, 1); // Remove the current question from the array
+    if (questions.length > 0) {
+        generateQuestion(); // Call the function to generate a new question
     } else {
-        alert("Quiz Over!"); // Alert the user that the quiz is over
+        alert("Game Over!"); // Alert the user that the game is over
+        startButton.textContent = "Start Game"; // Change the start button text to "Start"
         gameArea.innerHTML = ""; // Clear the game area
     }
 
