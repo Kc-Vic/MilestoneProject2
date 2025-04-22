@@ -9,35 +9,35 @@ const questions = [
     {
         question: "I am the punishment of God",
         choices: ["Genghis Khan", "Alexander the Great", "Albert Einstein", "Julius Caesar"],
-        img: "",
+        img: "assets/images/GenghisKhan.jpg",
         answer: 'Genghis Khan'
     },
 
     {
         question: "I am the state",
         choices: ["Louis XIV", "Napoleon Bonaparte", "Josef Stalin", "Winston Churchill"],
-        img: "",
+        img: "assets/images/Louis.jpg",
         answer: 'Louis XIV'
     },
 
     {
         question: "I have not yet begun to fight",
         choices: ["George Washington", "John Paul Jones", "Alexander the Great", "Napoleon Bonaparte"],
-        img: "",
+        img: "assets/images/JohnPaul.jpg",
         answer: 'John Paul Jones'
     },
 
     {
         question: "I will return",
         choices: ["Napoleon Bonaparte", "Douglas MacArthur", "Julius Caesar", "Genghis Khan"],
-        img: "",
+        img: "assets/images/mcAurthur.jpg",
         answer: 'Douglas MacArthur'
     },
 
     {
         question: "Who dares wins",
         choices: ["Nelson Mandela", "David Stirling", "Pope Francis", "Julius Caesar"],
-        img: "",
+        img: "assets/images/DavidStirling.jpg",
         answer: 'David Stirling'
     }
 ];
@@ -135,6 +135,7 @@ function nextQuestion() {
         startButton.textContent = "Start Game"; // Change the start button text to "Start"
         gameArea.innerHTML = ""; // Clear the game area
     }
+
 
 }
 
