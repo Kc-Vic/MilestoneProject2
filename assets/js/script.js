@@ -11,6 +11,34 @@ const questions = [
         choices: ["Genghis Khan", "Alexander the Great", "Albert Einstein", "Julius Caesar"],
         img: "",
         answer: 'Genghis Khan'
+    },
+
+    {
+        question: "I am the state",
+        choices: ["Louis XIV", "Napoleon Bonaparte", "Alexander the Great", "Genghis Khan"],
+        img: "",
+        answer: 'Louis XIV'
+    },
+
+    {
+        question: "I have not yet begun to fight",
+        choices: ["George Washington", "John Paul Jones", "Alexander the Great", "Napoleon Bonaparte"],
+        img: "",
+        answer: 'John Paul Jones'
+    },
+
+    {
+        question: "I will return",
+        choices: ["Napoleon Bonaparte", "Alexander the Great", "Julius Caesar", "Genghis Khan"],
+        img: "",
+        answer: 'Douglas MacArthur'
+    },
+
+    {
+        question: "Who dares wins",
+        choices: ["Nelson Mandela", "David Stirling", "Pope Francis", "Julius Caesar"],
+        img: "",
+        answer: 'David Stirling'
     }
 ];
 
@@ -46,6 +74,8 @@ function startGame() {
 function generateQuestion() {
 
     gameArea.innerHTML = ""; // Clear the game area
+    const randomQuestion = Math.floor(Math.random() * questions.length); // Generate a random question index
+    currentQuestion = randomQuestion; // Set the current question index to the random question index
     let questionText = document.createElement("h3");
     questionText.setAttribute("id", "question"); // Set the ID for the question text
     questionText.innerHTML = questions[currentQuestion].question; // Set the question text
