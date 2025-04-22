@@ -29,12 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const gameArea = document.querySelector(".game-area"); // Select the game area element
+const correctScore = document.querySelector("#correct-score"); // Select the correct score element
+const incorrectScore = document.querySelector("#incorrect-score"); // Select the incorrect score element
+const startButton = document.querySelector("#start-button"); // Select the start button element
 let currentQuestion;
 
 function startGame() {
     currentQuestion = 0;
     gameArea.innerHTML = ""; // Clear the game area
+    correctScore.innerText = 0; // Reset the correct score
+    incorrectScore.innerText = 0; // Reset the incorrect score
     generateQuestion(); // Call the function to generate a question
+    startButton.textContent = "Restart"; // Change the start button text to "Restart"
 }
 
 function generateQuestion() {
