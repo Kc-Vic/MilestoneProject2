@@ -59,7 +59,6 @@ h2 {
     Game Styles
     ----------*/
 .game-area {
-    display: flex;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -72,6 +71,10 @@ h2 {
     font-size: 1.5em;
     margin-bottom: 20px;
     font-style: italic;
+}
+
+.blur {
+    filter: blur(5px);
 }
 
 #img-container {

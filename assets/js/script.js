@@ -59,6 +59,7 @@ function generateQuestion() {
     questionImg.setAttribute("src", questions[currentQuestion].img);
     questionImg.setAttribute("alt", "Question Image");
     questionImg.setAttribute("id", "question-img"); // Set the ID for the image element
+    questionImg.setAttribute("class", "blur"); // Set the class for the image element
     imgcontainer.appendChild(questionImg); // Append the image to the container
 
     let choicesContainer = document.createElement("div");
@@ -107,7 +108,7 @@ function nextQuestion() {
 }
 
 function displayImage() {
-    
+   document.querySelector("question-img").removeClass("blur") // Remove the blur class from the image
 }
 
 function incrementCorrectAnswers() {
