@@ -138,6 +138,7 @@ function checkAnswer(e) {
 function flashAlert() {
     let alertText = document.getElementById("alerts"); // Get the alert text element
     alertText.classList.add("flash"); // Add the flash class to the alert text
+    displayImage(); // Call the function to display the image
     setTimeout(function() {
         alertText.classList.remove("flash"); // Remove the flash class after 1 second
         alertText.innerText = ""; // Clear the alert text
@@ -162,7 +163,8 @@ function nextQuestion() {
 }
 
 function displayImage() {
-   document.querySelector("question-img").removeClass("blur") // Remove the blur class from the image
+   let displayImage = document.getElementById("question-img"); // Get the image element
+   displayImage.setAttribute("class", ""); // Remove the blur class from the image element
 }
 
 function incrementCorrectAnswers() {
