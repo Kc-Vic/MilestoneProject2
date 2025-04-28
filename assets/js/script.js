@@ -129,9 +129,20 @@ function checkAnswer(e) {
         document.getElementById("alerts").innerText = "Wrong! The correct answer is: " + correctAnswer; // Set the answer alert text to "Wrong!"
         alerts.setAttribute("class", "red-text")
     }
-    
-    nextQuestion(); // Call the function to go to the next question
 
+    flashAlert(); // Call the function to flash the alert text
+    
+
+}
+
+function flashAlert() {
+    let alertText = document.getElementById("alerts"); // Get the alert text element
+    alertText.classList.add("flash"); // Add the flash class to the alert text
+    setTimeout(function() {
+        alertText.classList.remove("flash"); // Remove the flash class after 1 second
+        alertText.innerText = ""; // Clear the alert text
+        nextQuestion(); // Call the function to go to the next question
+    }, 2000);
 }
 
 
