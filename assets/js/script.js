@@ -65,7 +65,7 @@ let currentQuestion;
 function startGame() {
     currentQuestion = 0;
     gameArea.innerHTML = ""; // Clear the game area
-    document.getElementById("alert").innerText = ""; // Clear the alert text
+    document.getElementById("alerts").innerText = ""; // Clear the alert text
     correctScore.innerText = 0; // Reset the correct score
     incorrectScore.innerText = 0; // Reset the incorrect score
     generateQuestion(); // Call the function to generate a question
@@ -111,6 +111,7 @@ function generateQuestion() {
 
 }
 
+
 function checkAnswer(e) {
 
     let clickedButton = e.currentTarget; // Get the clicked button
@@ -119,15 +120,21 @@ function checkAnswer(e) {
     if (selectedAnswer === correctAnswer) {
         //alert("Correct!"); // Alert the user that the answer is correct
         incrementCorrectAnswers(); // Call the function to increment correct answers
-        document.getElementById("alert").innerText = "Correct!"; // Set the answer alert text to "Correct!"
+        document.getElementById("alerts").innerText = "Correct!"; // Set the answer alert text to "Correct!"
+        alerts.setAttribute("class", "green-text")
     }
     else {
         //alert("Wrong! The correct answer is: " + correctAnswer); // Alert the user that the answer is wrong
         incrementWrongAnswers(); // Call the function to increment wrong answers
-        document.getElementById("alert").innerText = "Wrong! The correct answer is: " + correctAnswer; // Set the answer alert text to "Wrong!"
+        document.getElementById("alerts").innerText = "Wrong! The correct answer is: " + correctAnswer; // Set the answer alert text to "Wrong!"
+        alerts.setAttribute("class", "red-text")
     }
+    
     nextQuestion(); // Call the function to go to the next question
+
 }
+
+
 
 function nextQuestion() {
     
