@@ -154,9 +154,7 @@ function nextQuestion() {
     if (questions.length > 0) {
         generateQuestion(); // Call the function to generate a new question
     } else {
-        alert("Game Over!"); // Alert the user that the game is over
-        startButton.textContent = "Start Game"; // Change the start button text to "Start"
-        gameArea.innerHTML = ""; // Clear the game area
+        endGame(); // Call the function to end the game
     }
 
 
@@ -179,4 +177,15 @@ function incrementWrongAnswers() {
     let oldScore = parseInt(document.getElementById("incorrect-score").innerText); // Get the current score
     document.getElementById("incorrect-score").innerText = oldScore + 1; // Increment the score by 1
 
+}
+
+function endGame() {
+
+    Swal.fire("Game Over!"); // Alert the user that the game is over
+    startButton.textContent = "Start Game"; // Change the start button text to "Start"
+    gameArea.innerHTML = ""; // Clear the game area
+    document.getElementById("alerts").innerText = ""; // Clear the alert text   
+    correctScore.innerText = 0; // Reset the correct score
+    incorrectScore.innerText = 0; // Reset the incorrect score
+    questions.length = 0; // Clear the questions array
 }
