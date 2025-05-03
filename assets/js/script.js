@@ -181,11 +181,15 @@ function incrementWrongAnswers() {
 
 function endGame() {
 
-    Swal.fire("Game Over!"); // Alert the user that the game is over
+    //Swal.fire("Game Over!"); // Alert the user that the game is over
+    Swal.fire({
+        title: "Game Over!",
+        html: `
+        You got <strong>${correctScore.innerText}</strong> correct answers and <strong>${incorrectScore.innerText}</strong> incorrect answers.`
+      })
     startButton.textContent = "Start Game"; // Change the start button text to "Start"
     gameArea.innerHTML = ""; // Clear the game area
     document.getElementById("alerts").innerText = ""; // Clear the alert text   
-    correctScore.innerText = 0; // Reset the correct score
-    incorrectScore.innerText = 0; // Reset the incorrect score
     questions.length = 0; // Clear the questions array
+
 }
