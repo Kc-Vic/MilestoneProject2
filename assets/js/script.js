@@ -62,6 +62,9 @@ const incorrectScore = document.querySelector("#incorrect-score"); // Select the
 const startButton = document.querySelector("#start-button"); // Select the start button element
 let currentQuestion;
 
+/**
+ * Starts the game by resetting the game area, scores, and generating a question.
+ */
 function startGame() {
     currentQuestion = 0;
     gameArea.innerHTML = ""; // Clear the game area
@@ -72,6 +75,9 @@ function startGame() {
     startButton.textContent = "Restart"; // Change the start button text to "Restart"
 }
 
+/**
+ * Generates a random question from the questions array and displays it in the game area.
+ */
 function generateQuestion() {
 
     gameArea.innerHTML = ""; // Clear the game area
@@ -100,6 +106,7 @@ function generateQuestion() {
     for (let choice of questions[currentQuestion].choices) {
         let choiceButton = document.createElement("button");
         choiceButton.setAttribute("class", "answer-button"); // Set the class for the choice button
+        choiceButton.setAttribute("id", "choice-button"); // Set the ID for the choice button
         choiceButton.innerHTML = choice; // Set the button text to the choice
         choiceButton.addEventListener("click", checkAnswer); // Add an event listener to the button
         choicesContainer.appendChild(choiceButton); // Append the button to the choices container
@@ -135,12 +142,34 @@ function checkAnswer(e) {
 
 }
 
+/**
+ * Disables all button elements on the page by setting their "disabled" attribute to "true".
+ * This function selects all buttons using the `getElementsByTagName` method and iterates
+ * through them to apply the "disabled" attribute.
+ */
+function disableButtons() {
+
+    let disableButtons = document.getElementsByClassName("answer-button"); // Get all the buttons with the ID "choice-button"
+    for (let button of disableButtons) {
+        button.setAttribute("disabled", "true"); // Disable the button
+    }
+
+}
+
+function enableButtons() {
+    let enableButtons = document.getElementsByClassName("answer-button"); // Get all the buttons with the ID "choice-button"
+    for (let button of enableButtons) {
+        button.removeAttribute("disabled"); // Enable the button
+    }
+}
+
 function flashAlert() {
     let alertText = document.getElementById("alerts"); // Get the alert text element
     alertText.classList.add("flash"); // Add the flash class to the alert text
     displayImage(); // Call the function to display the image
+    disableButtons(); // Call the function to disable buttons
     setTimeout(function() {
-        alertText.classList.remove("flash"); // Remove the flash class after 1 second
+        alertText.classList.remove("flash"); 
         alertText.innerText = ""; // Clear the alert text
         nextQuestion(); // Call the function to go to the next question
     }, 2000);
@@ -150,6 +179,7 @@ function flashAlert() {
 
 function nextQuestion() {
     
+    enableButtons(); // Call the function to enable buttons
     questions.splice(currentQuestion, 1); // Remove the current question from the array
     if (questions.length > 0) {
         generateQuestion(); // Call the function to generate a new question
