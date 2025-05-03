@@ -1,44 +1,107 @@
 const questions = [
     {
-        question: "I Came, I Saw, I Conquered",
+        question: '"I Came, I Saw, I Conquered"',
         choices: ["Julius Caesar", "Alexander the Great", "Napoleon Bonaparte", "Genghis Khan"],
         img: "assets/images/Julius Ceasar.jpg",
         answer: 'Julius Caesar'
     },
 
     {
-        question: "I am the punishment of God",
+        question: '"I am the punishment of God"',
         choices: ["Genghis Khan", "Alexander the Great", "Albert Einstein", "Julius Caesar"],
         img: "assets/images/GenghisKhan.jpg",
         answer: 'Genghis Khan'
     },
 
     {
-        question: "I am the state",
+        question: '"I am the state"',
         choices: ["Louis XIV", "Napoleon Bonaparte", "Josef Stalin", "Winston Churchill"],
         img: "assets/images/Louis.jpg",
         answer: 'Louis XIV'
     },
 
     {
-        question: "I have not yet begun to fight",
-        choices: ["George Washington", "John Paul Jones", "Alexander the Great", "Napoleon Bonaparte"],
-        img: "assets/images/JohnPaul.jpg",
-        answer: 'John Paul Jones'
+        question: '"Give a girl the right shoes, and she can conquer the world"',
+        choices: ["Coco Chanel", "Marilyn Monroe", "Audrey Hepburn", "Kate Moss"],
+        img: "assets/images/Marilyn.jpg",
+        answer: 'Marilyn Monroe'
     },
 
     {
-        question: "I will return",
+        question: '"I will return"',
         choices: ["Napoleon Bonaparte", "Douglas MacArthur", "Julius Caesar", "Genghis Khan"],
         img: "assets/images/mcAurthur.jpg",
         answer: 'Douglas MacArthur'
     },
 
     {
-        question: "Who dares wins",
+        question: '"Who dares wins"',
         choices: ["Nelson Mandela", "David Stirling", "Pope Francis", "Julius Caesar"],
         img: "assets/images/DavidStirling.jpg",
         answer: 'David Stirling'
+    },
+
+    {
+        question: '"People have got to know wether or not their president is a crook"',
+        choices: ["Barrack Obama", "Winston Churchill", "Donald Trump", "Richard Nixon"],
+        img: "assets/images/Nixon.jpg",
+        answer: 'Richard Nixon'
+    },
+
+    {
+        question: '"I have a dream, that one day this nation will rise up"',
+        choices: ["Martin Luther King Jr.", "Nelson Mandela", "Winston Churchill", "Albert Einstein"],
+        img: "assets/images/MartinLutherKing.jpg",
+        answer: 'Martin Luther King Jr.'
+    },
+
+    {
+        question: '"I am the master of my fate"',
+        choices: ["Nelson Mandela", "Winston Churchill", "William Ernest Henley", "Albert Einstein"],
+        img: "assets/images/WilliamHenley.jpg",
+        answer: 'William Ernest Henley'
+    },
+
+    {
+        question: '"Roll up that map of Europe, it will not be wanted these 10 years"',
+        choices: ["Winston Churchill", "Albert Einstein", "William Pitt", "Von Birsmarck"],
+        img: "assets/images/WilliamPit.jpg",
+        answer: 'William Pitt'
+    },
+
+    {
+        question: '"History is a set of lies agreed upon"',
+        choices: ["Napoleon Bonaparte", "Albert Einstein", "Winston Churchill", "Richard Nixon"],
+        img: "assets/images/Napoleon.jpg",
+        answer: 'Napoleon Bonaparte'
+    },
+
+    {
+        question: '"If you want something said, ask a man; if you want something done, ask a woman"',
+        choices: ["Margaret Thatcher", "Marie Curie", "Albert Einstein", "Winston Churchill"],
+        img: "assets/images/MargaretThatcher.jpg",
+        answer: 'Margaret Thatcher'
+    },
+
+    {
+        question: '"You do not need a crown to be a queen — just confidence."',
+        choices: ["Victoria Beckham", "Rihanna", "Beyoncé", "Diana Ross"],
+        img: "assets/images/VictoriaBeckham.jpg",
+        answer: "Victoria Beckham"
+    },
+
+    {
+        question: '"I am inevitable"',
+        choices: ["Hannibal Barca", "Napoleon Bonaparte", "Thanos", "Alexander the Great"],
+        img: "assets/images/Thanos.jpg",
+        answer: 'Thanos'
+    },
+
+    {
+        question: '"Fool of a Took!"',
+        choices: ["Gandalf", "Frodo Baggins", "Samwise Gamgee", "Aragorn"],
+        img: "assets/images/Gandalf.jpg",
+        answer: 'Gandalf'
     }
 ];
 
@@ -82,31 +145,31 @@ function generateQuestion() {
 
     gameArea.innerHTML = ""; // Clear the game area
     const randomQuestion = Math.floor(Math.random() * questions.length); // Generate a random question index
-    currentQuestion = randomQuestion; // Set the current question index to the random question index
+    currentQuestion = randomQuestion; //
     let questionText = document.createElement("h3");
-    questionText.setAttribute("id", "question"); // Set the ID for the question text
+    questionText.setAttribute("id", "question");
     questionText.innerHTML = questions[currentQuestion].question; // Set the question text
     gameArea.appendChild(questionText); // Append the question text to the game area
 
     let imgcontainer = document.createElement("div");
-    imgcontainer.setAttribute("id", "img-container"); // Set the ID for the image container
+    imgcontainer.setAttribute("id", "img-container");
     gameArea.appendChild(imgcontainer); // Append the container to the game area
 
     let questionImg = document.createElement("img");
     questionImg.setAttribute("src", questions[currentQuestion].img);
     questionImg.setAttribute("alt", "Question Image");
-    questionImg.setAttribute("id", "question-img"); // Set the ID for the image element
-    questionImg.setAttribute("class", "blur"); // Set the class for the image element
-    imgcontainer.appendChild(questionImg); // Append the image to the container
+    questionImg.setAttribute("id", "question-img");
+    questionImg.setAttribute("class", "blur");
+    imgcontainer.appendChild(questionImg);
 
     let choicesContainer = document.createElement("div");
-    choicesContainer.setAttribute("id", "answers"); // Set the ID for the choices container
+    choicesContainer.setAttribute("id", "answers");
     choicesContainer.innerHTML = ""; // Clear the container
     
     for (let choice of questions[currentQuestion].choices) {
         let choiceButton = document.createElement("button");
-        choiceButton.setAttribute("class", "answer-button"); // Set the class for the choice button
-        choiceButton.setAttribute("id", "choice-button"); // Set the ID for the choice button
+        choiceButton.setAttribute("class", "answer-button");
+        choiceButton.setAttribute("id", "choice-button");
         choiceButton.innerHTML = choice; // Set the button text to the choice
         choiceButton.addEventListener("click", checkAnswer); // Add an event listener to the button
         choicesContainer.appendChild(choiceButton); // Append the button to the choices container
@@ -118,7 +181,9 @@ function generateQuestion() {
 
 }
 
-
+/**
+    * Checks the answer selected by the user and compares it with the correct answer.
+ */
 function checkAnswer(e) {
 
     let clickedButton = e.currentTarget; // Get the clicked button
@@ -143,9 +208,8 @@ function checkAnswer(e) {
 }
 
 /**
- * Disables all button elements on the page by setting their "disabled" attribute to "true".
- * This function selects all buttons using the `getElementsByTagName` method and iterates
- * through them to apply the "disabled" attribute.
+ * Disables all the buttons in the game area to prevent further clicks.
+ * This is used when the user selects an answer to prevent them from clicking again until the next question is generated.
  */
 function disableButtons() {
 
@@ -163,12 +227,17 @@ function enableButtons() {
     }
 }
 
+/**
+ * Flashes the alert text and displays the image.
+ * This is used to indicate to the user that their answer was correct or wrong.
+ */
 function flashAlert() {
     let alertText = document.getElementById("alerts"); // Get the alert text element
     alertText.classList.add("flash"); // Add the flash class to the alert text
-    displayImage(); // Call the function to display the image
-    disableButtons(); // Call the function to disable buttons
-    setTimeout(function() {
+    displayImage();
+    disableButtons();
+    /** Sets timer between displaying image and next question*/
+    setTimeout(function() { 
         alertText.classList.remove("flash"); 
         alertText.innerText = ""; // Clear the alert text
         nextQuestion(); // Call the function to go to the next question
@@ -176,13 +245,16 @@ function flashAlert() {
 }
 
 
-
+/**
+ * Moves to the next question in the game.
+ * This function is called when the user selects an answer and the alert text is flashed.
+ */
 function nextQuestion() {
     
-    enableButtons(); // Call the function to enable buttons
+    enableButtons();
     questions.splice(currentQuestion, 1); // Remove the current question from the array
     if (questions.length > 0) {
-        generateQuestion(); // Call the function to generate a new question
+        generateQuestion();
     } else {
         endGame(); // Call the function to end the game
     }
@@ -190,11 +262,17 @@ function nextQuestion() {
 
 }
 
+/**
+ * Displays the image associated with the current question by removing the blur class.
+ */
 function displayImage() {
-   let displayImage = document.getElementById("question-img"); // Get the image element
+   let displayImage = document.getElementById("question-img");
    displayImage.setAttribute("class", ""); // Remove the blur class from the image element
 }
 
+/**
+ * Increases the score by 1 everytime the user answers a questions after checking the answer.
+ */
 function incrementCorrectAnswers() {
     
     let oldScore = parseInt(document.getElementById("correct-score").innerText); // Get the current score
@@ -209,9 +287,9 @@ function incrementWrongAnswers() {
 
 }
 
-function endGame() {
 
-    //Swal.fire("Game Over!"); // Alert the user that the game is over
+function endGame() {
+    //Alert the user that the game is over and displays total score
     Swal.fire({
         title: "Game Over!",
         html: `
