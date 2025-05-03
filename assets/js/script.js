@@ -14,10 +14,10 @@ const questions = [
     },
 
     {
-        question: '"I am the state"',
-        choices: ["Louis XIV", "Napoleon Bonaparte", "Josef Stalin", "Winston Churchill"],
-        img: "assets/images/Louis.jpg",
-        answer: 'Louis XIV'
+        question: '"One death is a tragedy; a million deaths is a statistic"',
+        choices: ["Louis XIV", "Napoleon Bonaparte", "Joesef Stalin", "Winston Churchill"],
+        img: "assets/images/Stalin.jpeg",
+        answer: 'Joesef Stalin'
     },
 
     {
@@ -58,49 +58,49 @@ const questions = [
     {
         question: '"I am the master of my fate"',
         choices: ["Nelson Mandela", "Winston Churchill", "William Ernest Henley", "Albert Einstein"],
-        img: "assets/images/WilliamHenley.jpg",
+        img: "assets/images/WilliamHenley.jpeg",
         answer: 'William Ernest Henley'
     },
 
     {
         question: '"Roll up that map of Europe, it will not be wanted these 10 years"',
         choices: ["Winston Churchill", "Albert Einstein", "William Pitt", "Von Birsmarck"],
-        img: "assets/images/WilliamPit.jpg",
+        img: "assets/images/WilliamPitt.jpeg",
         answer: 'William Pitt'
     },
 
     {
         question: '"History is a set of lies agreed upon"',
         choices: ["Napoleon Bonaparte", "Albert Einstein", "Winston Churchill", "Richard Nixon"],
-        img: "assets/images/Napoleon.jpg",
+        img: "assets/images/Napoleon.jpeg",
         answer: 'Napoleon Bonaparte'
     },
 
     {
         question: '"If you want something said, ask a man; if you want something done, ask a woman"',
         choices: ["Margaret Thatcher", "Marie Curie", "Albert Einstein", "Winston Churchill"],
-        img: "assets/images/MargaretThatcher.jpg",
+        img: "assets/images/MargaretThatcher.jpeg",
         answer: 'Margaret Thatcher'
     },
 
     {
         question: '"You do not need a crown to be a queen — just confidence."',
         choices: ["Victoria Beckham", "Rihanna", "Beyoncé", "Diana Ross"],
-        img: "assets/images/VictoriaBeckham.jpg",
+        img: "assets/images/VictoriaBeckham.jpeg",
         answer: "Victoria Beckham"
     },
 
     {
         question: '"I am inevitable"',
         choices: ["Hannibal Barca", "Napoleon Bonaparte", "Thanos", "Alexander the Great"],
-        img: "assets/images/Thanos.jpg",
+        img: "assets/images/Thanos.jpeg",
         answer: 'Thanos'
     },
 
     {
         question: '"Fool of a Took!"',
         choices: ["Gandalf", "Frodo Baggins", "Samwise Gamgee", "Aragorn"],
-        img: "assets/images/Gandalf.jpg",
+        img: "assets/images/Gandalf.jpeg",
         answer: 'Gandalf'
     }
 ];
