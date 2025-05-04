@@ -74,13 +74,14 @@ h2 {
 }
 
 .blur {
-    filter: blur(5px);
+    filter: blur(12px);
 }
 
 #img-container {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    height: 250px;
     width: 100%;
     overflow: hidden;
 }
@@ -151,7 +152,7 @@ h2 {
     }
 
     #question {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     .start-button {
@@ -176,7 +177,7 @@ h2 {
     }
 
     #question-img {
-        max-width: 80%;
+        max-width:80%;
         height: auto;
     }
 }
@@ -199,7 +200,7 @@ h2 {
     }
 
     #question {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 
     .rules,
@@ -218,7 +219,7 @@ h2 {
         align-items: center;
     }
     #question-img {
-        max-width: 100px;
+        max-width: 80%;
         height: auto;
     }
 }
