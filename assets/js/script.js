@@ -145,7 +145,8 @@ function generateQuestion() {
 
     gameArea.innerHTML = ""; // Clear the game area
     const randomQuestion = Math.floor(Math.random() * questions.length); // Generate a random question index
-    currentQuestion = randomQuestion; //
+    currentQuestion = randomQuestion; // Set the current question to the random question index
+
     let questionText = document.createElement("h3");
     questionText.setAttribute("id", "question");
     questionText.innerHTML = questions[currentQuestion].question; // Set the question text
@@ -301,3 +302,4 @@ function endGame() {
     questions.length = 0; // Clear the questions array
 
 }
+
