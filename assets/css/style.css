@@ -32,6 +32,16 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+li {
+    font-size: 1em;
+    margin-top: 10px;
+}
+.rules ul {
+    list-style-type: none;
+    padding: 20px 10px;
+    text-align: center
+}
+
 h2 {
     font-size: 2em;
     margin: 0 0 10px;
