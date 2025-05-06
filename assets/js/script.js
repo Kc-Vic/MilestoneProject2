@@ -1,4 +1,4 @@
-const questions = [
+const originalQuestions = [
     {
         question: '"I Came, I Saw, I Conquered"',
         choices: ["Julius Caesar", "Alexander the Great", "Napoleon Bonaparte", "Genghis Khan"],
@@ -123,6 +123,7 @@ const gameArea = document.querySelector(".game-area"); // Select the game area e
 const correctScore = document.querySelector("#correct-score"); // Select the correct score element
 const incorrectScore = document.querySelector("#incorrect-score"); // Select the incorrect score element
 const startButton = document.querySelector("#start-button"); // Select the start button element
+let questions = [...originalQuestions]; // Create a copy of the original questions array
 let currentQuestion;
 
 /**
@@ -130,6 +131,7 @@ let currentQuestion;
  */
 function startGame() {
     currentQuestion = 0;
+    questions = JSON.parse(JSON.stringify(originalQuestions)); // Reset the questions array to the original questions
     gameArea.innerHTML = ""; // Clear the game area
     document.getElementById("alerts").innerText = ""; // Clear the alert text
     correctScore.innerText = 0; // Reset the correct score

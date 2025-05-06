@@ -37,7 +37,7 @@ h2 {
     margin: 0 0 10px;
 }
 
-.start-button {
+#start-button {
     background-color: #4CAF50;
     border: none;
     border-radius: 5px;
