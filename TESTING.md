@@ -75,3 +75,62 @@ The following aspects of the application have been checked to verify they work a
   1. I have added a delay timer of 2 seconds between when the image is displayed and the alerts and next question is generated. 
   2. I have also created 2 functions to disable the buttons when an answer is selectyed and enable the buttons when the next question is generated. 
 
+## Testing
+
+### Functionality Testing
+
+| Test | Description | Expected Outcome | Result |
+|------|-------------|-----------------|--------|
+| Start Game | Click the "Start Game" button to begin | Game area should display a quote and answer options | PASS |
+| Answer Selection | Click on an answer option | System should check if the answer is correct and provide feedback | PASS |
+| Score Tracking | Answer questions correctly and incorrectly | Scores should update accordingly | PASS |
+| Image Reveal | Select an answer | Blurred image should clear to reveal the author | PASS |
+| Next Question | After answering a question, wait for the next one | New question should appear after 2 seconds | PASS |
+| Game Completion | Answer all 15 questions | Game should display a summary with total score | PASS |
+| Restart Game | Click "Restart" during a game | Game should reset with new questions and scores back to zero | PASS |
+
+### Browser Compatibility
+
+| Browser | Version | Compatibility | Notes |
+|---------|---------|---------------|-------|
+| Chrome  | Latest  | Full          | All features work as expected |
+| Firefox | Latest  | Full          | All features work as expected |
+| Safari  | Latest  | Full          | All features work as expected |
+| Edge    | Latest  | Full          | All features work as expected |
+| Opera   | Latest  | Full          | All features work as expected |
+| Internet Explorer | 11 | Partial  | Some CSS animations not supported |
+
+### Responsiveness Testing
+
+| Device/Screen Size | Compatibility | Notes |
+|-------------------|---------------|-------|
+| Desktop (1920px)  | Full          | All elements display correctly |
+| Laptop (1366px)   | Full          | All elements display correctly |
+| Tablet (768px)    | Full          | Elements resize appropriately |
+| Mobile (480px)    | Full          | Elements stack vertically as designed |
+
+### Validator Testing
+
+- HTML
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/)
+- CSS
+  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
+- JavaScript
+  - No errors were found when passing through [JSHint](https://jshint.com/)
+  - The following metrics were returned:
+    - There are 15 functions in this file
+    - Function with the largest signature takes 1 argument
+    - Largest function has 10 statements
+    - The most complex function has a cyclomatic complexity value of 4
+
+### Known Bugs and Fixes
+
+#### Fixed Bugs
+- **Issue**: When clicking answer buttons rapidly, multiple scores could be recorded.
+  - **Fix**: Disabled buttons after selection to prevent multiple clicks.
+
+- **Issue**: Image aspect ratio distortion on smaller screens.
+  - **Fix**: Added CSS media queries to adjust image size appropriately.
+
+#### Remaining Issues
+- None currently identified. All known issues have been resolved.

@@ -43,7 +43,7 @@ h2 {
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    font-size: 4px;
+    font-size: 1rem;
     margin-top: 20px;
     padding: 10px 20px;
     transition: background-color 0.3s ease;
@@ -89,7 +89,9 @@ h2 {
 
 #question-img {
     max-width: 100%;
-    height: 300px;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
     border-radius: 5px;
 }
 
@@ -102,14 +104,16 @@ h2 {
     font-size: 1.2em;
     margin: 5px;
     padding: 10px 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .answer-button:hover {
     background-color: #ccc;
+    transform: translateY(-2px)
 }
 .answer-button:active {
     background-color: #aaa;
+    transform: translateY(1px);
 }
 
 /*-----
@@ -128,18 +132,32 @@ h2 {
     margin: 0;
 }
 
-.green-text {
-    color: green;
+.green-text, .red-text {
     font-size: 1.5em;
     margin: 0;
+}
+.green-text {
+    color: #2e7d32;
 }
 .red-text {
-    color: red;
-    font-size: 1.5em;
-    margin: 0;
+    color: #c62828;
 }
+
+/*-----
+    Alert Styles
+    ----------*/
 #alerts {
     font-size: 1em;
+}
+
+.flash {
+    animation: flash-animation 0.5s ease;
+}
+
+@keyframes flash-animation {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 /*------------------------------
