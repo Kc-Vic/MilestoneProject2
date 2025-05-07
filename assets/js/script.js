@@ -145,9 +145,9 @@ function startGame() {
  */
 function generateQuestion() {
 
-    gameArea.innerHTML = ""; // Clear the game area
+    gameArea.innerHTML = "";
     const randomQuestion = Math.floor(Math.random() * questions.length); // Generate a random question index
-    currentQuestion = randomQuestion; // Set the current question to the random question index
+    currentQuestion = randomQuestion;
 
     let questionText = document.createElement("h3");
     questionText.setAttribute("id", "question");
@@ -173,7 +173,7 @@ function generateQuestion() {
         let choiceButton = document.createElement("button");
         choiceButton.setAttribute("class", "answer-button");
         choiceButton.setAttribute("id", "choice-button");
-        choiceButton.innerHTML = choice; // Set the button text to the choice
+        choiceButton.innerHTML = choice;
         choiceButton.addEventListener("click", checkAnswer); // Add an event listener to the button
         choicesContainer.appendChild(choiceButton); // Append the button to the choices container
     };
@@ -190,22 +190,22 @@ function generateQuestion() {
 function checkAnswer(e) {
 
     let clickedButton = e.currentTarget; // Get the clicked button
-    let selectedAnswer = clickedButton.innerText; // Get the text of the clicked button
-    let correctAnswer = questions[currentQuestion].answer; // Get the correct answer
+    let selectedAnswer = clickedButton.innerText;
+    let correctAnswer = questions[currentQuestion].answer; // Get the correct answer for the current question
     if (selectedAnswer === correctAnswer) {
         //alert("Correct!"); // Alert the user that the answer is correct
-        incrementCorrectAnswers(); // Call the function to increment correct answers
-        document.getElementById("alerts").innerText = "Correct!"; // Set the answer alert text to "Correct!"
+        incrementCorrectAnswers(); 
+        document.getElementById("alerts").innerText = "Correct!"; 
         alerts.setAttribute("class", "green-text")
     }
     else {
         //alert("Wrong! The correct answer is: " + correctAnswer); // Alert the user that the answer is wrong
-        incrementWrongAnswers(); // Call the function to increment wrong answers
+        incrementWrongAnswers(); 
         document.getElementById("alerts").innerText = "Wrong! The correct answer is: " + correctAnswer; // Set the answer alert text to "Wrong!"
         alerts.setAttribute("class", "red-text")
     }
 
-    flashAlert(); // Call the function to flash the alert text
+    flashAlert(); 
     
 
 }
@@ -224,9 +224,9 @@ function disableButtons() {
 }
 
 function enableButtons() {
-    let enableButtons = document.getElementsByClassName("answer-button"); // Get all the buttons with the ID "choice-button"
+    let enableButtons = document.getElementsByClassName("answer-button"); 
     for (let button of enableButtons) {
-        button.removeAttribute("disabled"); // Enable the button
+        button.removeAttribute("disabled");
     }
 }
 
@@ -235,15 +235,15 @@ function enableButtons() {
  * This is used to indicate to the user that their answer was correct or wrong.
  */
 function flashAlert() {
-    let alertText = document.getElementById("alerts"); // Get the alert text element
-    alertText.classList.add("flash"); // Add the flash class to the alert text
+    let alertText = document.getElementById("alerts");
+    alertText.classList.add("flash");
     displayImage();
     disableButtons();
     /** Sets timer between displaying image and next question*/
     setTimeout(function() { 
         alertText.classList.remove("flash"); 
-        alertText.innerText = ""; // Clear the alert text
-        nextQuestion(); // Call the function to go to the next question
+        alertText.innerText = ""; 
+        nextQuestion();
     }, 2000);
 }
 
@@ -259,7 +259,7 @@ function nextQuestion() {
     if (questions.length > 0) {
         generateQuestion();
     } else {
-        endGame(); // Call the function to end the game
+        endGame();
     }
 
 
@@ -270,7 +270,7 @@ function nextQuestion() {
  */
 function displayImage() {
    let displayImage = document.getElementById("question-img");
-   displayImage.setAttribute("class", ""); // Remove the blur class from the image element
+   displayImage.setAttribute("class", "");
 }
 
 /**
@@ -292,15 +292,15 @@ function incrementWrongAnswers() {
 
 
 function endGame() {
-    //Alert the user that the game is over and displays total score
+    //Alert the user that the game is over and displays total score using sweet alert code
     Swal.fire({
         title: "Game Over!",
         html: `
         You got <strong>${correctScore.innerText}</strong> correct answers and <strong>${incorrectScore.innerText}</strong> incorrect answers.`
       })
-    startButton.textContent = "Start Game"; // Change the start button text to "Start"
-    gameArea.innerHTML = ""; // Clear the game area
-    document.getElementById("alerts").innerText = ""; // Clear the alert text   
+    startButton.textContent = "Start Game";
+    gameArea.innerHTML = "";
+    document.getElementById("alerts").innerText = ""; 
 
 }
 
