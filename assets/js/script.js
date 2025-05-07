@@ -301,7 +301,6 @@ function endGame() {
     startButton.textContent = "Start Game"; // Change the start button text to "Start"
     gameArea.innerHTML = ""; // Clear the game area
     document.getElementById("alerts").innerText = ""; // Clear the alert text   
-    questions.length = 0; // Clear the questions array
 
 }
 

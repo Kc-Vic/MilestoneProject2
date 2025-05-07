@@ -97,8 +97,6 @@ The following aspects of the application have been checked to verify they work a
 | Firefox | Latest  | Full          | All features work as expected |
 | Safari  | Latest  | Full          | All features work as expected |
 | Edge    | Latest  | Full          | All features work as expected |
-| Opera   | Latest  | Full          | All features work as expected |
-| Internet Explorer | 11 | Partial  | Some CSS animations not supported |
 
 ### Responsiveness Testing
 
@@ -115,13 +113,46 @@ The following aspects of the application have been checked to verify they work a
   - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/)
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
-- JavaScript
-  - No errors were found when passing through [JSHint](https://jshint.com/)
-  - The following metrics were returned:
-    - There are 15 functions in this file
-    - Function with the largest signature takes 1 argument
-    - Largest function has 10 statements
-    - The most complex function has a cyclomatic complexity value of 4
+
+### Manual Buttons Testing
+
+1. Button Hover Effects
+ - Expected behavior: All buttons should change color when hovered over
+ - Test method: Move cursor over each button (Start/Restart button and all answer option buttons)
+ - Success criteria:
+    * Button background smoothly transitions to the hover state color
+    * Transition animation takes approximately 0.3 seconds as specified in CSS
+    * Cursor changes to pointer style
+2. Button Functionality
+ - Expected behavior: All buttons trigger appropriate actions when clicked
+ - Test method:
+    * Click Start button to begin game
+    * Click each answer option during gameplay
+ - Success criteria:
+    * Start button initiates game with first question displayed
+    * Answer buttons correctly register user selection
+    * Each button click produces exactly one response (no double-triggering)
+3. Dynamic Button Text
+ - Expected behavior: Start button text updates based on game state
+ - Test method:
+    * Note initial button text ("Start Game")
+    * Click button to start game
+    * Complete game and check text again
+ - Success criteria:
+    * Text changes to "Restart" when game is in progress
+    * Text reverts to "Start Game" after game completion
+4. Button State Management
+ - Expected behavior: Buttons are disabled/enabled at appropriate times
+ - Test method:
+    * Start game and select an answer
+    * Attempt to click other answers during the 2-second feedback period
+    * Observe behavior when next question appears
+ - Success criteria:
+    * All answer buttons are disabled immediately after selection
+    * Clicking disabled buttons produces no effect
+    * All buttons are re-enabled when next question is displayed
+    * If all questions are answered, Start/Restart button remains active
+
 
 ### Known Bugs and Fixes
 
@@ -132,5 +163,16 @@ The following aspects of the application have been checked to verify they work a
 - **Issue**: Image aspect ratio distortion on smaller screens.
   - **Fix**: Added CSS media queries to adjust image size appropriately.
 
+- **Issue**: Questions needed to appear in random order.
+  - **Fix**: Implemented a randomization algorithm using Math.random().
+
+- **Issue**: The same question appears multiple times in each round.
+  - **Fix**: Used array splice() method to remove used questions.
+
+- **Issue**: Multiple functions needed proper sequencing.
+  - **Fix**: Added a 2-second delay between answer selection and next question.
+
+- **Issue**: Questions array is emptied when the game is over forcer the user to referesh the page before starting gain.
+  - **Fix**: Creates a separate constant originalQuestions to store all the questions and hard reset the array.  
 #### Remaining Issues
 - None currently identified. All known issues have been resolved.
