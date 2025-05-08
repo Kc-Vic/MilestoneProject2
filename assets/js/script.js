@@ -138,6 +138,11 @@ function startGame() {
     incorrectScore.innerText = 0; // Reset the incorrect score
     generateQuestion(); // Call the function to generate a question
     startButton.textContent = "Restart"; // Change the start button text to "Restart"
+    focusGameArea();
+}
+
+function focusGameArea() {
+    gameArea.scrollIntoView({ behavior: "smooth" }); // Scroll to the game area smoothly
 }
 
 /**
