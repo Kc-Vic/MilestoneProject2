@@ -1,10 +1,12 @@
 ## Testing
 
+[Overview](README.md)
 ### Functionality Testing
 
 | Test | Description | Expected Outcome | Result |
 |------|-------------|-----------------|--------|
 | Start Game | Click the "Start Game" button to begin | Game area should display a quote and answer options | PASS |
+| Focus | Click on "start Game" Button | Page should scroll to game area on smaller screen sizes | PASS |
 | Answer Selection | Click on an answer option | System should check if the answer is correct and provide feedback | PASS |
 | Score Tracking | Answer questions correctly and incorrectly | Scores should update accordingly | PASS |
 | Image Reveal | Select an answer | Blurred image should clear to reveal the author | PASS |
