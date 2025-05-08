@@ -38,7 +38,7 @@ li {
 }
 .rules ul {
     list-style-type: none;
-    padding: 20px 10px;
+    padding: 5px 10px;
     text-align: center
 }
 
@@ -237,6 +237,7 @@ h2 {
         font-size: 1.2em;
     }
 
+
     .start-button,
     .answer-button {
         width: 100%;
@@ -246,13 +247,13 @@ h2 {
     }
 
     #question {
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     .rules,
     .game-area,
     .scoreboard {
-        margin: 10px 0;
+        margin: 8px 0;
         padding: 10px 5px;
     }
 
@@ -275,5 +276,15 @@ h2 {
     .score-item {
         padding: 5px 10px;
         font-size: 1em;
+    }
+    
+    .answer-button {
+        font-size: 0.9em;
+        padding: 8px 10px;
+        margin: 5px 0;
+    }
+
+    #alerts {
+        font-size: 0.8em;
     }
 }
